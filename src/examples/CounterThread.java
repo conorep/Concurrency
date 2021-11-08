@@ -24,7 +24,7 @@ public class CounterThread extends Thread
     }
 
     // tester main
-    public static void main(String[] args)
+    public static void main(String[] args) throws InterruptedException
     {
         Thread[] threads = {
                 new CounterThread(1, 10),
@@ -40,6 +40,10 @@ public class CounterThread extends Thread
         {
             threads[i].start();
         }
+
+        // put main method to sleep 1 second (1000milliseconds) before it begins counting
+        // main goes last because of this!
+        Thread.sleep(1000);
 
         for (int i = 41; i < 50; i++)
         {

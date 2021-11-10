@@ -17,10 +17,16 @@ public class CounterThread extends Thread
     @Override
     public void run()
     {
-        for (int i = low; i <= high; i++)
-        {
-            System.out.println(this.getName() + ": " + i);
+        try {
+            for (int i = low; i <= high; i++)
+            {
+                System.out.println(this.getName() + ": " + i);
+                Thread.sleep(10);
+            }
+        } catch (InterruptedException e) {
+            System.out.println(e);
         }
+
     }
 
     // tester main
